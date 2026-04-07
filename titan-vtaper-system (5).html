@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>TITAN V-TAPER SYSTEM</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3f0;--w:#fff;--mu:#eeebe6;--bd:#e0dbd4;--bd2:#ede9e3;--t:#1c1814;--t2:#5c554d;--t3:#9c9088;--ac:#8c7456;--ac2:#b09878;--ac3:#f0e8dc;--dk:#2a2420;--r:16px;--r2:12px;--r3:8px;--sh:0 2px 12px rgba(60,45,30,.08);--sh2:0 6px 28px rgba(60,45,30,.13);}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+.nav{position:sticky;top:0;z-index:99;background:rgba(245,243,240,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);height:52px;display:flex;align-items:center;padding:0 18px;justify-content:space-between;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--dk);}
+.nav-logo em{color:var(--ac);font-style:normal;}
+.nav-links{display:flex;gap:2px;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);text-decoration:none;padding:5px 8px;border-radius:6px;transition:.2s;}
+.nav-links a:hover{background:var(--ac3);color:var(--ac);}
+
+.hero{padding:64px 18px 52px;max-width:900px;margin:0 auto;}
+.hero-eye{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.hero-eye::before{content:'';width:28px;height:1px;background:var(--ac);}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,18vw,128px);line-height:.86;letter-spacing:2px;color:var(--dk);}
+.hero-title span{display:block;color:var(--ac);}
+.hero-sub{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin:20px 0 8px;padding-left:16px;border-left:2px solid var(--ac);}
+.hero-tag{font-size:14px;color:var(--t2);font-style:italic;font-weight:300;padding-left:18px;margin-bottom:30px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px;}
+.chip{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;background:var(--w);border:1px solid var(--bd);color:var(--ac);padding:5px 13px;border-radius:100px;box-shadow:var(--sh);}
+
+.wrap{max-width:900px;margin:0 auto;padding:0 18px;}
+.sec{padding:52px 0;}
+.sec+.sec{border-top:1px solid var(--bd2);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:8px;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:1.5px;color:var(--dk);margin-bottom:24px;}
+
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.pg{grid-template-columns:1fr;}}
+.pc{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:26px;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2),transparent);}
+.pb{display:inline-flex;align-items:center;gap:6px;background:var(--ac3);border:1px solid var(--bd2);border-radius:100px;padding:4px 12px 4px 8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ac);margin-bottom:18px;}
+.pb::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac);}
+.mets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;}
+.met{background:var(--mu);border:1px solid var(--bd2);border-radius:var(--r3);padding:12px;text-align:center;}
+.mv{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--dk);display:block;}
+.ml{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--t3);margin-top:2px;display:block;}
+.plbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin:14px 0 7px;}
+.tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{font-size:12px;background:var(--mu);border:1px solid var(--bd2);border-radius:5px;padding:3px 9px;color:var(--t2);}
+.tag.hi{color:var(--ac);background:var(--ac3);border-color:var(--ac2);}
+.sc{background:var(--dk);border-radius:var(--r);padding:28px;color:#e5ded5;}
+.slbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ac2);margin-bottom:14px;}
+.sttl{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;color:#f0ede8;margin-bottom:18px;}
+.sli{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.sli li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#bfb8b0;font-weight:300;line-height:1.5;}
+.sli li::before{content:'—';color:var(--ac2);flex-shrink:0;font-family:'DM Mono',monospace;}
+
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-bottom:22px;}
+.tw::-webkit-scrollbar{display:none;}
+.tabs{display:flex;gap:4px;width:max-content;min-width:100%;padding:4px;background:var(--mu);border-radius:12px;border:1px solid var(--bd);}
+.tb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:transparent;border:none;border-radius:9px;padding:10px 13px;color:var(--t3);cursor:pointer;white-space:nowrap;flex-shrink:0;min-height:44px;display:flex;align-items:center;text-decoration:none;transition:.18s;}
+.tb:hover{background:var(--ac3);color:var(--ac);}
+.tb.active{background:var(--w);color:var(--dk);box-shadow:var(--sh);font-weight:500;}
+.dp{display:none;}
+.dp.active{display:block;}
+
+.dc{background:var(--w);border:1px solid var(--bd);border-radius:20px;overflow:hidden;box-shadow:var(--sh);}
+.dhd{padding:22px 24px 18px;border-bottom:1px solid var(--bd2);}
+.dn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:3px;}
+.dname{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--dk);margin-bottom:8px;}
+.dg{font-size:13px;color:var(--ac);font-style:italic;font-weight:300;padding:7px 13px;background:var(--ac3);border-radius:6px;border-left:2px solid var(--ac);display:inline-block;}
+
+/* EXERCISE ROW — thumbnail = real photo via CSS background */
+.er{display:grid;grid-template-columns:72px 1fr;border-bottom:1px solid var(--bd2);transition:.15s;cursor:pointer;}
+.er:last-child{border-bottom:none;}
+.er:hover{background:var(--mu);}
+.er:active{background:var(--ac3);}
+.eth{width:72px;min-height:72px;display:flex;align-items:stretch;justify-content:center;flex-shrink:0;position:relative;overflow:hidden;background:var(--mu);}
+.eth img{width:72px;height:72px;object-fit:cover;display:block;}
+.eth-fallback{width:72px;height:72px;display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--ac3);}
+.play-badge{position:absolute;bottom:4px;right:4px;background:rgba(220,0,0,.88);border-radius:4px;width:20px;height:14px;display:flex;align-items:center;justify-content:center;}
+.play-badge svg{width:10px;height:10px;fill:#fff;}
+.ei{padding:12px 14px 12px 12px;flex:1;min-width:0;}
+.ename{font-weight:600;font-size:13.5px;color:var(--dk);margin-bottom:2px;}
+.etgt{font-size:11px;color:var(--ac);font-family:'DM Mono',monospace;letter-spacing:.4px;margin-bottom:2px;}
+.etip{font-size:11px;color:var(--t3);font-style:italic;margin-bottom:6px;}
+.erow-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.esv{font-family:'DM Mono',monospace;font-size:12px;color:var(--ac);font-weight:500;white-space:nowrap;}
+.ert{font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);white-space:nowrap;}
+.vid-btn{display:inline-flex;align-items:center;gap:4px;background:#ff0000;color:#fff;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:4px 8px;border-radius:5px;text-decoration:none;flex-shrink:0;transition:.15s;}
+.vid-btn:hover{background:#cc0000;}
+.vid-btn svg{width:10px;height:10px;fill:#fff;flex-shrink:0;}
+
+.co{padding:18px 20px;display:flex;flex-direction:column;gap:10px;}
+.cop{display:flex;align-items:center;gap:13px;padding:11px 15px;background:var(--mu);border-radius:10px;border:1px solid var(--bd2);}
+.cico{font-size:22px;width:34px;text-align:center;flex-shrink:0;}
+.cn{font-weight:600;font-size:14px;color:var(--dk);}
+.cd{font-family:'DM Mono',monospace;font-size:11px;color:var(--ac);margin-top:1px;}
+
+.rb{padding:34px 22px;text-align:center;}
+.ri{font-size:46px;margin-bottom:13px;display:block;}
+.rt{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--dk);margin-bottom:16px;}
+.rl{list-style:none;max-width:280px;margin:0 auto;display:flex;flex-direction:column;gap:8px;text-align:left;}
+.rl li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--t2);padding:9px 13px;background:var(--mu);border:1px solid var(--bd2);border-radius:8px;}
+
+.dft{padding:16px 22px 20px;display:flex;flex-direction:column;gap:11px;}
+.cue{padding:11px 14px;border-radius:9px;font-size:13px;line-height:1.55;}
+.cc{background:var(--ac3);border:1px solid var(--bd2);border-left:3px solid var(--ac);color:#6b5438;}
+.cr{background:var(--mu);border:1px solid var(--bd2);border-left:3px solid #b0a090;color:var(--t2);}
+.clbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:4px;opacity:.65;}
+.cpb{align-self:flex-end;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;background:var(--w);border:1px solid var(--bd);border-radius:7px;padding:8px 16px;color:var(--t3);cursor:pointer;transition:.2s;}
+.cpb:hover{background:var(--ac3);border-color:var(--ac2);color:var(--ac);}
+.cpb.ok{background:var(--dk);border-color:var(--dk);color:#e8e0d5;}
+
+.ntw{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-bottom:20px;}
+.ntw::-webkit-scrollbar{display:none;}
+.ntabs{display:flex;gap:4px;width:max-content;min-width:100%;padding:4px;background:var(--mu);border-radius:10px;border:1px solid var(--bd);}
+.nb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--t3);cursor:pointer;white-space:nowrap;flex:1;min-width:40px;min-height:44px;text-decoration:none;transition:.18s;display:flex;align-items:center;justify-content:center;}
+.nb.active{background:var(--w);color:var(--dk);box-shadow:var(--sh);font-weight:500;}
+.np{display:none;}
+.np.active{display:block;}
+.meals{display:flex;flex-direction:column;gap:10px;}
+.mc{background:var(--w);border:1px solid var(--bd);border-radius:var(--r2);display:flex;overflow:hidden;box-shadow:var(--sh);}
+.mico{width:50px;background:var(--ac3);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;border-right:1px solid var(--bd2);}
+.mb{padding:12px 15px;flex:1;}
+.mt{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:4px;}
+.mi{font-size:13.5px;color:var(--t);line-height:1.6;}
+.mm{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.mp{font-family:'DM Mono',monospace;font-size:9px;background:var(--mu);border:1px solid var(--bd2);border-radius:100px;padding:2px 8px;color:var(--t3);}
+.nn{margin-top:13px;font-size:12px;color:var(--t3);font-style:italic;padding:10px 13px;background:var(--mu);border-radius:8px;border-left:2px solid var(--ac2);}
+
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+@media(max-width:600px){.sg{grid-template-columns:1fr;}}
+.scat{background:var(--w);border:1px solid var(--bd);border-radius:var(--r2);padding:18px;box-shadow:var(--sh);}
+.scttl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ac);margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--bd2);}
+.si{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--bd2);font-size:13px;color:var(--t);cursor:pointer;}
+.si:last-child{border-bottom:none;padding-bottom:0;}
+.sch{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--bd);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--mu);transition:.15s;}
+.si.chk .sch{background:var(--ac);border-color:var(--ac);}
+.si.chk .sch::after{content:'✓';font-size:11px;color:#fff;font-weight:700;}
+.si.chk .st{text-decoration:line-through;color:var(--t3);}
+.sa{font-family:'DM Mono',monospace;font-size:11px;color:var(--t3);margin-left:auto;flex-shrink:0;}
+
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+@media(max-width:560px){.rg{grid-template-columns:1fr;}}
+.rc{background:var(--w);border:1px solid var(--bd);border-radius:var(--r2);padding:16px 18px;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.rc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac);}
+.rn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--ac2);margin-bottom:5px;text-transform:uppercase;}
+.rtx{font-size:13.5px;color:var(--t);line-height:1.5;font-weight:500;}
+
+.prg{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;}
+@media(min-width:700px){.prg{grid-template-columns:repeat(4,1fr);}}
+.pm{background:var(--w);border:1px solid var(--bd);border-radius:var(--r2);padding:18px 14px;text-align:center;box-shadow:var(--sh);}
+.pmi{font-size:20px;margin-bottom:8px;display:block;}
+.pml{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:7px;display:block;}
+.pminp{width:100%;border:1px solid var(--bd);border-radius:6px;padding:7px 8px;font-family:'DM Mono',monospace;font-size:13px;background:var(--mu);color:var(--dk);text-align:center;outline:none;transition:.2s;}
+.pminp:focus{border-color:var(--ac2);background:var(--ac3);}
+.pmu{font-family:'DM Mono',monospace;font-size:9px;color:var(--t3);margin-top:3px;display:block;}
+
+footer{text-align:center;padding:44px 18px;border-top:1px solid var(--bd2);}
+.fb{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:var(--dk);margin-bottom:6px;}
+.fb em{color:var(--ac);font-style:normal;}
+.fs{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);}
+
+@media(max-width:480px){
+  .hero-title{font-size:72px;}
+  .dname{font-size:24px;}
+  .sec{padding:36px 0;}
+  .dhd,.dft{padding:16px;}
+  .er{grid-template-columns:64px 1fr;}
+  .eth,.eth img{width:64px;height:64px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">TITAN <em>V</em></div>
+  <div class="nav-links">
+    <a href="#profile">Profile</a>
+    <a href="#program">Program</a>
+    <a href="#nutrition">Food</a>
+    <a href="#shop">Shop</a>
+    <a href="#progress">Progress</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eye">Elite Fitness Architecture · 12-Week System</div>
+  <div class="hero-title">TITAN<span>V-TAPER</span></div>
+  <div class="hero-sub">7-Day Repeatable Blueprint</div>
+  <div class="hero-tag">System over emotion · Build the frame · Repeat for 12 weeks</div>
+  <div class="chips">
+    <span class="chip">Upper Chest</span>
+    <span class="chip">Side Delt</span>
+    <span class="chip">Lat Width</span>
+    <span class="chip">Small Waist</span>
+    <span class="chip">Aesthetic V-Taper</span>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section class="sec" id="profile"><div class="wrap">
+  <div class="sec-label">ATHLETE PROFILE · UNIT 01</div>
+  <div class="sec-title">OPERATOR DATA</div>
+  <div class="pg">
+    <div class="pc">
+      <div class="pb">Active · David Laid Style</div>
+      <div class="mets">
+        <div class="met"><span class="mv">30</span><span class="ml">ปี</span></div>
+        <div class="met"><span class="mv">172</span><span class="ml">cm</span></div>
+        <div class="met"><span class="mv">62</span><span class="ml">kg</span></div>
+      </div>
+      <div class="plbl">จุดแข็ง</div>
+      <div class="tags"><span class="tag hi">เอวแคบ</span><span class="tag hi">Body fat ต่ำ</span><span class="tag hi">โครงสร้าง Aesthetic</span></div>
+      <div class="plbl">จุดพัฒนา</div>
+      <div class="tags"><span class="tag">Upper Chest</span><span class="tag">Side Delt</span><span class="tag">Lat Width</span><span class="tag">Lower Abs</span></div>
+    </div>
+    <div class="sc">
+      <div class="slbl">STRATEGIC ANALYSIS</div>
+      <div class="sttl">System Before Emotion</div>
+      <ul class="sli">
+        <li>เหมาะกับระบบระยะยาว — วินัยคือเครื่องยนต์</li>
+        <li>Consistency มีพลังเหนือ Intensity spike เสมอ</li>
+        <li>ออกแบบให้ทำซ้ำได้จริง ไม่กิน recovery เกิน</li>
+        <li>โครงสร้างชัด → ผลลัพธ์ชัด → V-taper จริง</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROGRAM -->
+<section class="sec" id="program"><div class="wrap">
+  <div class="sec-label">TRAINING MODULE · 7-DAY CYCLE</div>
+  <div class="sec-title">WEEKLY BLUEPRINT</div>
+  <div style="background:var(--ac3);border:1px solid var(--bd2);border-radius:10px;padding:10px 14px;margin-bottom:20px;font-size:12px;color:var(--ac);">
+    ▶ กดที่ชื่อท่าใดก็ได้ เพื่อดูวิดีโอสอนใน YouTube
+  </div>
+  <div class="tw">
+    <div class="tabs" id="dayTabs">
+      <a href="#" class="tb active" onclick="showDay(0,this);return false;">D1 · Upper A</a>
+      <a href="#" class="tb" onclick="showDay(1,this);return false;">D2 · Cardio</a>
+      <a href="#" class="tb" onclick="showDay(2,this);return false;">D3 · Lower</a>
+      <a href="#" class="tb" onclick="showDay(3,this);return false;">D4 · Recovery</a>
+      <a href="#" class="tb" onclick="showDay(4,this);return false;">D5 · Upper B</a>
+      <a href="#" class="tb" onclick="showDay(5,this);return false;">D6 · Cardio</a>
+      <a href="#" class="tb" onclick="showDay(6,this);return false;">D7 · Rest</a>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="dp active" id="day-0"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 01 · TRAINING</div><div class="dname">UPPER V-TAPER A</div><div class="dg">เป้าหมาย: Upper Chest · Lat Width · Side Delt</div></div>
+    <div>
+      <a class="er" href="https://www.youtube.com/results?search_query=incline+dumbbell+press+proper+form+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/8iPEnn-ltC8/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🏋️</div>'" alt="Incline DB Press"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Incline Dumbbell Press</div><div class="etgt">Upper Chest · Anterior Delt</div><div class="etip">Stretch upper chest ก่อน press ขึ้น — ไม่แฟลร์ข้อศอก</div><div class="erow-bottom"><span class="esv">4×8–10</span><span class="ert">Rest 90–120s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=lat+pulldown+proper+form+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/CAwf7n6Luuc/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>💪</div>'" alt="Lat Pulldown"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Lat Pulldown</div><div class="etgt">Lat Width · Teres Major</div><div class="etip">Scapula ลงก่อน ดึงด้วย lat ไม่ใช่ bicep</div><div class="erow-bottom"><span class="esv">4×8–12</span><span class="ert">Rest 90s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=chest+supported+dumbbell+row+how+to" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/Cb7EFHvSLro/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🔙</div>'" alt="Chest Row"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Chest-Supported Row</div><div class="etgt">Mid Back · Rhomboids</div><div class="etip">Squeeze กลางหลังตอน top ค้าง 1 วิ</div><div class="erow-bottom"><span class="esv">3×8–12</span><span class="ert">Rest 90s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=dumbbell+lateral+raise+proper+form+side+delt" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/3VcKaXpzqRo/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🦾</div>'" alt="Lateral Raise"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Dumbbell Lateral Raise</div><div class="etgt">Side Delt · Medial Head</div><div class="etip">ยกข้างๆ ไม่ใช่ข้างหน้า หัวไหล่ลงตลอด</div><div class="erow-bottom"><span class="esv">4×12–20</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=face+pull+cable+rear+delt+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/eIq5CB9JfKE/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🎯</div>'" alt="Face Pull"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Face Pull</div><div class="etgt">Rear Delt · Rotator Cuff</div><div class="etip">ดึงมาที่หน้า หมุน external rotation เต็ม</div><div class="erow-bottom"><span class="esv">3×12–20</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=incline+dumbbell+curl+bicep+long+head+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/soxrZlIl35U/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>💪</div>'" alt="Incline Curl"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Incline Dumbbell Curl</div><div class="etgt">Bicep Long Head · Peak</div><div class="etip">แขนห้อยเต็ม stretch ที่ต้นแขน ไม่แกว่ง</div><div class="erow-bottom"><span class="esv">3×10–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=rope+pushdown+tricep+cable+how+to" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/vB5OHsJ3EME/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>💥</div>'" alt="Rope Pushdown"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Rope Pushdown</div><div class="etgt">Tricep Lateral Head</div><div class="etip">Flare rope ออกตอนล่าง squeeze ยาว</div><div class="erow-bottom"><span class="esv">3×10–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+    </div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">Coaching Cue</span>Incline press — stretch upper chest ก่อน · Lateral raise — ยกข้างๆ หัวไหล่ลง ข้อมือหมุนออก</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>นอน 7–8h · น้ำ 2.5–3L · โปรตีนครบทุกมื้อ</div>
+      <button class="cpb" onclick="copyDay(0,this)">Copy Workout</button>
+    </div>
+  </div></div>
+
+  <!-- DAY 2 -->
+  <div class="dp" id="day-1"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 02 · CARDIO + CORE</div><div class="dname">CARDIO + CORE</div><div class="dg">เป้าหมาย: Aerobic base + Lower Abs detail</div></div>
+    <div class="co">
+      <a class="cop" href="https://www.youtube.com/results?search_query=zone+2+cardio+running+treadmill+tutorial" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="cico">🏃</div><div><div class="cn">วิ่ง / Incline Walk</div><div class="cd">25–35 min · Zone 2 · 130–150 BPM <span style="color:#ff0000">▶ ดูวิดีโอ</span></div></div>
+      </a>
+    </div>
+    <div>
+      <a class="er" href="https://www.youtube.com/results?search_query=hanging+knee+raise+abs+tutorial+lower+abs" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/cG4T29FcbUw/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🏋️</div>'" alt="Hanging Knee"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Hanging Knee Raise</div><div class="etgt">Lower Abs · Hip Flexor</div><div class="etip">ห้อยตัวให้เต็ม curl เข่าขึ้นช้าๆ</div><div class="erow-bottom"><span class="esv">3×12–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=cable+crunch+abs+proper+form+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/2fbujeH3F0E/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🔥</div>'" alt="Cable Crunch"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Cable Crunch</div><div class="etgt">Upper Abs · Rectus Abdominis</div><div class="etip">Crunch ลงช้าๆ ให้รู้สึก abs บีบ</div><div class="erow-bottom"><span class="esv">3×15–20</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=side+plank+proper+form+oblique+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/YFt8RD_6cdo/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>📐</div>'" alt="Side Plank"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Side Plank</div><div class="etgt">Obliques · Core Stability</div><div class="etip">สะโพกไม่หย่อน กดเต็มข้าง</div><div class="erow-bottom"><span class="esv">2×30–45s</span><span class="ert">Rest 45s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+    </div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">Coaching Cue</span>Cardio เพื่อ control ไม่ใช่ destroy — ชีพจร 130–150 BPM · Core: slow &amp; controlled</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>วันนี้ไม่ยกหนัก — ฟื้นฟู upper body ก่อน Lower พรุ่งนี้</div>
+      <button class="cpb" onclick="copyDay(1,this)">Copy Workout</button>
+    </div>
+  </div></div>
+
+  <!-- DAY 3 -->
+  <div class="dp" id="day-2"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 03 · LOWER BODY</div><div class="dname">LOWER BODY</div><div class="dg">เป้าหมาย: Quad + Ham + Glute + สัดส่วนล่างสมดุล</div></div>
+    <div>
+      <a class="er" href="https://www.youtube.com/results?search_query=goblet+squat+back+squat+proper+form+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/aclHkVaku9U/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🏋️</div>'" alt="Squat"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Back Squat / Goblet Squat</div><div class="etgt">Quadriceps · Glutes · Core</div><div class="etip">Hip ต่ำกว่า knee หัวเข่าชี้ตามนิ้วเท้า</div><div class="erow-bottom"><span class="esv">4×6–10</span><span class="ert">Rest 2–3 min</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=romanian+deadlift+RDL+proper+form+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/JCXUYuzwNrM/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🔩</div>'" alt="RDL"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Romanian Deadlift (RDL)</div><div class="etgt">Hamstring · Glutes · Lower Back</div><div class="etip">Hinge ที่สะโพก หลังตรง hamstring ยืด</div><div class="erow-bottom"><span class="esv">3×8–10</span><span class="ert">Rest 90s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=leg+press+machine+proper+form+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/IZxyjW7MPJQ/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🦵</div>'" alt="Leg Press"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Leg Press</div><div class="etgt">Quadriceps · Glutes</div><div class="etip">เท้าชิดกลาง เน้น quad — ไม่ล็อคเข่าตอนบน</div><div class="erow-bottom"><span class="esv">3×10–15</span><span class="ert">Rest 90s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=leg+curl+hamstring+machine+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/-gFD4KmOAG8/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🦵</div>'" alt="Leg Curl"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Leg Curl</div><div class="etgt">Hamstring Isolation</div><div class="etip">Curl ช้าลง eccentric ให้ยาวที่สุด</div><div class="erow-bottom"><span class="esv">3×10–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=standing+calf+raise+proper+form+calves" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/gwLzBJYoWlI/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>👟</div>'" alt="Calf Raise"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Calf Raise</div><div class="etgt">Gastrocnemius · Soleus</div><div class="etip">Stretch เต็มล่าง บีบเต็มบน ช้า 3 วิ</div><div class="erow-bottom"><span class="esv">4×12–20</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=back+extension+hyperextension+proper+form" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/ph3pddpKzzw/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🔙</div>'" alt="Back Extension"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Back Extension</div><div class="etgt">Erector Spinae · Glutes</div><div class="etip">ควบคุมทุก rep ไม่ hyperextend</div><div class="erow-bottom"><span class="esv">2–3×12–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+    </div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">Coaching Cue</span>Squat ลึกพอ hip ต่ำกว่า knee · RDL: hinge สะโพก หลังตรง รู้สึก hamstring ยืด</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>Lower body ใช้พลังงานมาก — คาร์บวันนี้สำคัญมาก กินให้ครบ</div>
+      <button class="cpb" onclick="copyDay(2,this)">Copy Workout</button>
+    </div>
+  </div></div>
+
+  <!-- DAY 4 -->
+  <div class="dp" id="day-3"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 04 · ACTIVE RECOVERY</div><div class="dname">ACTIVE RECOVERY</div><div class="dg">เป้าหมาย: ฟื้นฟู + Mobility + Blood flow</div></div>
+    <div class="rb"><span class="ri">◎</span><div class="rt">Recovery Protocol</div>
+      <ul class="rl">
+        <li>🚶 เดิน 8,000–10,000 ก้าว</li>
+        <li>🧘 Mobility 10 นาที</li>
+        <li>🫁 Stretch Chest + Lat</li>
+        <li>🦵 Stretch Hip Flexor + Hamstring</li>
+      </ul>
+    </div>
+    <div style="padding:0 22px 16px;"><a href="https://www.youtube.com/results?search_query=full+body+mobility+routine+recovery+stretching" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#ff0000;color:#fff;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;padding:8px 14px;border-radius:7px;text-decoration:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ Mobility Routine</a></div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">System Note</span>อย่านอนอยู่เฉย — เดินช้าๆ ช่วย blood flow ลด soreness ได้จริง</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>นอนหลับให้เต็ม — วันนี้คือวันที่กล้ามเนื้อสร้างตัวเองจริงๆ</div>
+      <button class="cpb" onclick="copyDay(3,this)">Copy Protocol</button>
+    </div>
+  </div></div>
+
+  <!-- DAY 5 -->
+  <div class="dp" id="day-4"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 05 · TRAINING</div><div class="dname">UPPER V-TAPER B</div><div class="dg">เป้าหมาย: Delt Volume สูง + Lat Activation + Detail</div></div>
+    <div>
+      <a class="er" href="https://www.youtube.com/results?search_query=flat+dumbbell+press+chest+proper+form" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/VmB1G1K7v94/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🏋️</div>'" alt="Flat DB Press"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Flat DB Press / Machine Chest</div><div class="etgt">Mid Chest · Pectoralis Major</div><div class="etip">Full ROM stretch ด้านล่างก่อน push</div><div class="erow-bottom"><span class="esv">3×8–12</span><span class="ert">Rest 90s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=pull+up+lat+pulldown+proper+form+tutorial+lats" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/sIvJTfGxdFo/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>⬆️</div>'" alt="Pull Up"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Pull-Up / Assisted / Close-Grip Pulldown</div><div class="etgt">Lat · Teres · Bicep</div><div class="etip">Scapula ลงก่อน ดึงด้วย lat ไม่ใช่ bicep</div><div class="erow-bottom"><span class="esv">4×8–12</span><span class="ert">Rest 90s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=one+arm+cable+row+single+arm+back+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/4sTeOXGY9aM/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🔙</div>'" alt="One Arm Row"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">One-Arm Cable Row</div><div class="etgt">Mid Back · Lat · Rear Delt</div><div class="etip">Rotate ลำตัวเล็กน้อย เพิ่ม ROM</div><div class="erow-bottom"><span class="esv">3×10–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=dumbbell+lateral+raise+side+delt+form+tips" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/3VcKaXpzqRo/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🦾</div>'" alt="Lateral Raise x5"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Dumbbell Lateral Raise <span style="color:#ff4444;font-size:11px;">×5 sets!</span></div><div class="etgt">Side Delt · Shoulder Width</div><div class="etip">5 sets — mind-muscle เต็ม ลด kg ถ้าเมื่อย</div><div class="erow-bottom"><span class="esv">5×12–20</span><span class="ert">Rest 45–60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=rear+delt+fly+dumbbell+bent+over+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/EA7u4Q_8HQ0/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🎯</div>'" alt="Rear Delt Fly"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Rear Delt Fly</div><div class="etgt">Rear Delt · Upper Back</div><div class="etip">ข้อศอกงอเล็กน้อย flare out ด้านหลัง</div><div class="erow-bottom"><span class="esv">4×12–20</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=low+to+high+cable+fly+upper+chest+tutorial" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/JgVoGVHlFZE/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>↗️</div>'" alt="Cable Fly"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Low-to-High Cable Fly</div><div class="etgt">Upper Chest · Clavicular Head</div><div class="etip">ยกขึ้นเหนือหัวไหล่ squeeze ตรงกลาง</div><div class="erow-bottom"><span class="esv">3×12–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="er" href="https://www.youtube.com/results?search_query=hammer+curl+brachialis+dumbbell+proper+form" target="_blank" rel="noopener">
+        <div class="eth"><img src="https://img.youtube.com/vi/zC3nLlEvin4/mqdefault.jpg" onerror="this.parentNode.innerHTML='<div class=eth-fallback>🔨</div>'" alt="Hammer Curl"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        <div class="ei"><div class="ename">Hammer Curl</div><div class="etgt">Brachialis · Forearm Thickness</div><div class="etip">หัวแม่มือขึ้น neutral grip ตลอด ไม่แกว่ง</div><div class="erow-bottom"><span class="esv">3×10–15</span><span class="ert">Rest 60s</span><span class="vid-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>ดูวิดีโอ</span></div></div>
+      </a>
+    </div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">Coaching Cue</span>Lateral Raise 5 sets — mind-muscle เต็ม · Pull-Up: scapula ลงก่อน ดึงด้วย lat</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>Delt volume สูง — ไม่ ego lift lateral raise ฟอร์มสำคัญกว่า kg</div>
+      <button class="cpb" onclick="copyDay(4,this)">Copy Workout</button>
+    </div>
+  </div></div>
+
+  <!-- DAY 6 -->
+  <div class="dp" id="day-5"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 06 · CARDIO</div><div class="dname">CARDIO SESSION</div><div class="dg">เป้าหมาย: Conditioning + Metabolism ก่อน Rest day</div></div>
+    <div class="co">
+      <a class="cop" href="https://www.youtube.com/results?search_query=steady+state+cardio+running+fat+burn" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="cico">🏃</div><div><div class="cn">วิ่ง</div><div class="cd">20–30 min · Steady pace <span style="color:#ff0000">▶ ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="cop" href="https://www.youtube.com/results?search_query=incline+treadmill+walking+fat+loss+tutorial" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="cico">🏔️</div><div><div class="cn">Incline Walk</div><div class="cd">30–40 min · Zone 2 <span style="color:#ff0000">▶ ดูวิดีโอ</span></div></div>
+      </a>
+      <a class="cop" href="https://www.youtube.com/results?search_query=shadow+boxing+muay+thai+beginner+cardio" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="cico">🥊</div><div><div class="cn">Shadow Muay Thai / Kickboxing</div><div class="cd">15–20 min · ตามสบาย <span style="color:#ff0000">▶ ดูวิดีโอ</span></div></div>
+      </a>
+    </div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">Coaching Cue</span>เลือก option ที่ชอบ — เป้าหมายคือขยับ ไม่ใช่ทรมาน</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>กินครบ hydrate ดีๆ พรุ่งนี้ Rest day — ร่างกาย rebuild เต็มที่</div>
+      <button class="cpb" onclick="copyDay(5,this)">Copy Workout</button>
+    </div>
+  </div></div>
+
+  <!-- DAY 7 -->
+  <div class="dp" id="day-6"><div class="dc">
+    <div class="dhd"><div class="dn">DAY 07 · REST + CHECK-IN</div><div class="dname">REST &amp; REVIEW</div><div class="dg">เป้าหมาย: Complete recovery + วัดผล + Reset</div></div>
+    <div class="rb"><span class="ri">◈</span><div class="rt">Weekly Check-In</div>
+      <ul class="rl">
+        <li>⚖️ ชั่งน้ำหนักตอนเช้า (หลังห้องน้ำ)</li>
+        <li>📸 ถ่ายรูปหน้ากระจก front / side</li>
+        <li>💤 ทบทวน recovery + sleep สัปดาห์นี้</li>
+        <li>🏋️ จดน้ำหนักท่า Incline Press / Lateral Raise</li>
+        <li>📋 วางแผนสัปดาห์หน้า</li>
+      </ul>
+    </div>
+    <div class="dft">
+      <div class="cue cc"><span class="clbl">System Note</span>น้ำหนักหยุด 2 สัปดาห์ → เพิ่มคาร์บ 30–50g วันซ้อม · เอวขยาย → ลดคาร์บวัน Rest</div>
+      <div class="cue cr"><span class="clbl">Recovery Note</span>Rest day คือวันที่กล้ามเนื้อเติบโต — นอนหลับเต็มที่</div>
+      <button class="cpb" onclick="copyDay(6,this)">Copy Protocol</button>
+    </div>
+  </div></div>
+
+</div></section>
+
+<!-- NUTRITION -->
+<section class="sec" id="nutrition"><div class="wrap">
+  <div class="sec-label">FUEL MODULE · DAILY NUTRITION</div>
+  <div class="sec-title">NUTRITION SYSTEM</div>
+  <div class="ntw">
+    <div class="ntabs" id="nutrTabs">
+      <a href="#" class="nb active" onclick="showNutr(0,this);return false;">DAY 1</a>
+      <a href="#" class="nb" onclick="showNutr(1,this);return false;">DAY 2</a>
+      <a href="#" class="nb" onclick="showNutr(2,this);return false;">DAY 3</a>
+      <a href="#" class="nb" onclick="showNutr(3,this);return false;">DAY 4</a>
+      <a href="#" class="nb" onclick="showNutr(4,this);return false;">DAY 5</a>
+      <a href="#" class="nb" onclick="showNutr(5,this);return false;">DAY 6</a>
+      <a href="#" class="nb" onclick="showNutr(6,this);return false;">DAY 7</a>
+    </div>
+  </div>
+
+  <div class="np active" id="nutr-0"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">อกไก่ย่างสมุนไพร 200g + ข้าวกล้อง 200g + บรอกโคลีผัดกระเทียม 100g + ส้ม 1 ลูก</div><div class="mm"><span class="mp">P ~52g</span><span class="mp">C ~65g</span><span class="mp">F ~8g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย (ก่อนซ้อม)</div><div class="mi">ขนมปังโฮลวีต 4 แผ่น + เนยถั่ว 10g + กล้วย 1 ลูก</div><div class="mm"><span class="mp">P ~12g</span><span class="mp">C ~60g</span><span class="mp">F ~8g</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น / หลังซ้อม</div><div class="mi">ปลาทับทิมนึ่งมะนาว 180g + ข้าวหอมมะลิ 200g + ผักโขมผัดน้ำมันมะกอก 80g + สับปะรด 120g</div><div class="mm"><span class="mp">P ~44g</span><span class="mp">C ~68g</span><span class="mp">F ~7g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">กรีกโยเกิร์ต 150g + น้ำผึ้งดิบ 1 ช้อนชา</div><div class="mm"><span class="mp">P ~18g</span><span class="mp">Casein slow release</span></div></div></div>
+  </div><div class="nn">🏋️ D1 Upper A — คาร์บสูง เน้น fuel ก่อนซ้อม · มื้อเช้าเหมือนกันทุกวัน มื้ออื่นต่างกันทุกวัน</div></div>
+
+  <div class="np" id="nutr-1"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">อกไก่ต้มราดซอสพริกไทยดำ 180g + ข้าวซ้อมมือ 180g + แตงกวา + มะเขือเทศ 80g + แอปเปิล 1 ลูก</div><div class="mm"><span class="mp">P ~46g</span><span class="mp">C ~58g</span><span class="mp">F ~6g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย (หลังคาร์ดิโอ)</div><div class="mi">กรีกโยเกิร์ต 150g + กีวี 2 ลูก + granola 20g</div><div class="mm"><span class="mp">P ~20g</span><span class="mp">C ~38g</span><span class="mp">F ~5g</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น</div><div class="mi">แซลมอนอบเลมอนเฮิร์บ 150g + มันฝรั่งอบ 220g + asparagus ย่าง 80g + สตรอว์เบอร์รี 100g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~56g</span><span class="mp">F ~14g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">นมโปรตีนสูง 1 ขวด (รสช็อกโกแลต)</div><div class="mm"><span class="mp">P ~25g</span><span class="mp">Low carb</span></div></div></div>
+  </div><div class="nn">🏃 D2 Cardio — คาร์บลดเล็กน้อย ไม่ต้องโหลด · แซลมอน + asparagus ต่างจาก D1 ทั้งหมด</div></div>
+
+  <div class="np" id="nutr-2"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">ข้าวหน้าไก่ผัดซีอิ๊วดำ 200g + ข้าวขาว 200g + ถั่วฝักยาว + ข้าวโพดอ่อน 100g + ส้ม 1 ลูก</div><div class="mm"><span class="mp">P ~50g</span><span class="mp">C ~72g</span><span class="mp">F ~8g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย (ก่อนซ้อม Lower)</div><div class="mi">เวย์โปรตีน 1 scoop + ขนมปังขาว 2–3 แผ่น + กล้วย 1 ลูก</div><div class="mm"><span class="mp">P ~28g</span><span class="mp">C ~55g</span><span class="mp">Fast energy</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น / หลังซ้อม</div><div class="mi">เนื้อวัวไม่ติดมันผัดผักชีลาว 180g + มันหวานนึ่ง 220g + ถั่วแขก 80g + กีวี 1–2 ลูก</div><div class="mm"><span class="mp">P ~46g</span><span class="mp">C ~70g</span><span class="mp">F ~9g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">กรีกโยเกิร์ต 120g + อัลมอนด์ 10g</div><div class="mm"><span class="mp">P ~17g</span><span class="mp">Healthy fats</span></div></div></div>
+  </div><div class="nn">🦵 D3 Lower — คาร์บสูงสุดของสัปดาห์ รองรับ squat + RDL · เนื้อวัว + มันหวาน ต่างจาก D1–D2</div></div>
+
+  <div class="np" id="nutr-3"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">สลัดไก่ย่างโยเกิร์ตเฮิร์บ 180g + quinoa 150g + มะเขือเทศเชอร์รี่ + เฟต้าชีส 20g + สับปะรด 150g</div><div class="mm"><span class="mp">P ~44g</span><span class="mp">C ~50g</span><span class="mp">F ~10g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย</div><div class="mi">นมโปรตีนสูง 1 ขวด + แอปเปิล 1 ลูก + อัลมอนด์ 15g</div><div class="mm"><span class="mp">P ~27g</span><span class="mp">C ~28g</span><span class="mp">Healthy fats</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น</div><div class="mi">ปลากะพงนึ่งซีอิ๊วขิง 180g + มันฝรั่งต้ม 200g + ผักบุ้งผัดน้ำมันหอย 80g + มะม่วงสุก 100g</div><div class="mm"><span class="mp">P ~42g</span><span class="mp">C ~55g</span><span class="mp">F ~5g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">กีวี 1 ลูก + กรีกโยเกิร์ต 100g + เมล็ดเจีย 5g</div><div class="mm"><span class="mp">P ~14g</span><span class="mp">Anti-inflammatory</span></div></div></div>
+  </div><div class="nn">🧘 D4 Recovery — calorie ลดเล็กน้อย · quinoa สลัด + ปลากะพง ต่างจากทุกวัน</div></div>
+
+  <div class="np" id="nutr-4"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">ไก่ทอดไร้แป้งราดซอสน้ำพริกเผา 200g + ข้าวหอมมะลิ 200g + ผักนึ่งหลากสี 100g + ส้มโอ 2 กลีบ</div><div class="mm"><span class="mp">P ~52g</span><span class="mp">C ~66g</span><span class="mp">F ~10g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย (ก่อนซ้อม Upper B)</div><div class="mi">ขนมปังโฮลวีต 4 แผ่น + เนยถั่ว 15g + กล้วย 1 ลูก + น้ำผึ้งดิบ 5g</div><div class="mm"><span class="mp">P ~14g</span><span class="mp">C ~65g</span><span class="mp">F ~10g</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น / หลังซ้อม</div><div class="mi">แซลมอนย่างซอสมิโซะ 200g + ข้าวกล้อง 220g + เต้าหู้นิ่มผัดผักโขม 80g + สับปะรด 120g</div><div class="mm"><span class="mp">P ~52g</span><span class="mp">C ~72g</span><span class="mp">F ~14g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">นมโปรตีนสูง 1 ขวด + เมล็ดฟักทอง 10g</div><div class="mm"><span class="mp">P ~27g</span><span class="mp">Zinc + Mg สนับสนุนการนอน</span></div></div></div>
+  </div><div class="nn">💪 D5 Upper B — fuel เต็ม ไม่ตัดคาร์บ · แซลมอนมิโซะ + ไก่น้ำพริกเผา ต่างจากทุกวัน</div></div>
+
+  <div class="np" id="nutr-5"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">ข้าวต้มปลาช่อน 180g + ข้าว 180g + ขิงสด + ต้นหอม + แอปเปิล 1 ลูก</div><div class="mm"><span class="mp">P ~44g</span><span class="mp">C ~56g</span><span class="mp">F ~4g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย</div><div class="mi">กรีกโยเกิร์ต 150g + กล้วยน้ำว้า 1 ลูก + granola ธัญพืช 20g</div><div class="mm"><span class="mp">P ~20g</span><span class="mp">C ~40g</span><span class="mp">F ~4g</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น</div><div class="mi">หมูสันในย่างสมุนไพร 180g + มันหวานอบ 200g + ผักรวมนึ่ง 80g + สตรอว์เบอร์รี 100g</div><div class="mm"><span class="mp">P ~42g</span><span class="mp">C ~60g</span><span class="mp">F ~8g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">เวย์โปรตีน ½–1 scoop ชงนม + อบเชย</div><div class="mm"><span class="mp">P ~20–30g</span><span class="mp">Low sugar</span></div></div></div>
+  </div><div class="nn">🏃 D6 Cardio — ข้าวต้มปลา + หมูสันใน ต่างจากทุกวัน ให้ร่างกายใช้ไขมันสะสม</div></div>
+
+  <div class="np" id="nutr-6"><div class="meals">
+    <div class="mc"><div class="mico">🌅</div><div class="mb"><div class="mt">มื้อเช้า (เหมือนทุกวัน)</div><div class="mi">ไข่ 3 ฟอง + ข้าวโอ๊ต 50g + กล้วย 1 ลูก + กรีกโยเกิร์ต 120g</div><div class="mm"><span class="mp">P ~38g</span><span class="mp">C ~55g</span><span class="mp">F ~12g</span></div></div></div>
+    <div class="mc"><div class="mico">☀️</div><div class="mb"><div class="mt">มื้อเที่ยง</div><div class="mi">ไก่ตุ๋นยาจีนเห็ดหอม 180g + ข้าวกล้อง 180g + ผักคะน้าลวก 80g + ส้ม 1 ลูก</div><div class="mm"><span class="mp">P ~46g</span><span class="mp">C ~56g</span><span class="mp">F ~6g</span></div></div></div>
+    <div class="mc"><div class="mico">⚡</div><div class="mb"><div class="mt">มื้อบ่าย</div><div class="mi">กรีกโยเกิร์ต 150g + กีวี 1 ลูก + วอลนัท 10g</div><div class="mm"><span class="mp">P ~19g</span><span class="mp">Omega-3 จากวอลนัท</span></div></div></div>
+    <div class="mc"><div class="mico">🌙</div><div class="mb"><div class="mt">มื้อเย็น</div><div class="mi">ปลาทูน่ากระป๋องน้ำเปล่า 180g + มันฝรั่งต้ม 200g + กะหล่ำปลีผัด 80g + สับปะรด 120g</div><div class="mm"><span class="mp">P ~46g</span><span class="mp">C ~58g</span><span class="mp">F ~3g</span></div></div></div>
+    <div class="mc"><div class="mico">💤</div><div class="mb"><div class="mt">ก่อนนอน</div><div class="mi">นมโปรตีนสูง 1 ขวด + ลูกพรุน 2 ลูก</div><div class="mm"><span class="mp">P ~25g</span><span class="mp">Gut health</span></div></div></div>
+  </div><div class="nn">🛌 D7 Rest — ไก่ตุ๋นยาจีน + ปลาทูน่า ต่างจากทุกวัน เน้น gut health + rebuild</div></div>
+
+</div></section>
+
+<!-- SHOPPING -->
+<section class="sec" id="shop"><div class="wrap">
+  <div class="sec-label">SUPPLY MODULE · WEEKLY</div>
+  <div class="sec-title">SHOPPING CHECKLIST</div>
+  <div class="sg">
+    <div class="scat">
+      <div class="scttl">🥩 โปรตีน</div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">อกไก่</span><span class="sa">1.3–1.5 kg</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ปลา / แซลมอน / เนื้อ</span><span class="sa">1.2–1.4 kg</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ไข่</span><span class="sa">18–21 ฟอง</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">กรีกโยเกิร์ต</span><span class="sa">1.0–1.2 kg</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">เวย์โปรตีน</span><span class="sa">5–7 scoops</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">นมโปรตีนสูง</span><span class="sa">4–5 ขวด</span></div>
+    </div>
+    <div class="scat">
+      <div class="scttl">🌾 คาร์บ</div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ข้าวโอ๊ต</span><span class="sa">300–350g</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ข้าวสวย / ข้าวกล้อง</span><span class="sa">1.3–1.6 kg</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ขนมปังโฮลวีต</span><span class="sa">2 แถว</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">มันหวาน / มันฝรั่ง</span><span class="sa">1.2–1.5 kg</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">Quinoa (optional)</span><span class="sa">200g</span></div>
+    </div>
+    <div class="scat">
+      <div class="scttl">🥦 ผัก + ผลไม้</div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ผักรวม</span><span class="sa">1.4–1.8 kg</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">กล้วย</span><span class="sa">10–12 ลูก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ส้ม / ส้มโอ</span><span class="sa">4–5 ลูก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">กีวี</span><span class="sa">6–8 ลูก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">สับปะรด</span><span class="sa">1 ลูกเล็ก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">สตรอว์เบอร์รี</span><span class="sa">300–400g</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">แอปเปิล</span><span class="sa">3–4 ลูก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">มะม่วงสุก</span><span class="sa">1–2 ลูก</span></div>
+    </div>
+    <div class="scat">
+      <div class="scttl">🧴 ไขมันดี + เสริม</div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">เนยถั่ว</span><span class="sa">1 กระปุก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">น้ำมันมะกอก</span><span class="sa">1 ขวดเล็ก</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">อัลมอนด์ / วอลนัท</span><span class="sa">100g</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">ครีเอทีน</span><span class="sa">5g/day</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">เกลือแร่</span><span class="sa">—</span></div>
+      <div class="si" onclick="toggleCheck(this)"><div class="sch"></div><span class="st">น้ำเปล่า</span><span class="sa">2.5–3L/day</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- RULES -->
+<section class="sec" id="rules"><div class="wrap">
+  <div class="sec-label">OPERATING RULES · SYSTEM COMMANDS</div>
+  <div class="sec-title">PROTOCOL DIRECTIVES</div>
+  <div class="rg">
+    <div class="rc"><div class="rn">RULE 01</div><div class="rtx">Sleep &lt;6h → ลด load 10–15% วันนั้น — ร่างกายไม่พร้อมอย่าฝืน</div></div>
+    <div class="rc"><div class="rn">RULE 02</div><div class="rtx">Pre-workout snack ต้องไม่ข้าม — คาร์บก่อนซ้อมคือ performance</div></div>
+    <div class="rc"><div class="rn">RULE 03</div><div class="rtx">No ego lifting — ฟอร์มดีกว่า kg หนักเสมอ โดยเฉพาะ lateral raise</div></div>
+    <div class="rc"><div class="rn">RULE 04</div><div class="rtx">Cardio เพื่อ control ไม่ใช่ destroy — อย่าเผาจนหมดแรงยก</div></div>
+    <div class="rc"><div class="rn">RULE 05</div><div class="rtx">น้ำหนักหยุดนิ่ง 2 สัปดาห์ → เพิ่มคาร์บ 30–50g ในวันซ้อมเท่านั้น</div></div>
+    <div class="rc"><div class="rn">RULE 06</div><div class="rtx">เอวขยายเร็วเกิน → ลดคาร์บเล็กน้อยในวัน Rest ก่อนวัน Training</div></div>
+  </div>
+</div></section>
+
+<!-- PROGRESS -->
+<section class="sec" id="progress"><div class="wrap">
+  <div class="sec-label">PROGRESS DASHBOARD · WEEKLY REVIEW</div>
+  <div class="sec-title">METRICS TRACKER</div>
+  <div class="prg">
+    <div class="pm"><span class="pmi">⚖️</span><span class="pml">น้ำหนักตัว</span><input class="pminp" type="text" placeholder="62.0"><span class="pmu">kg</span></div>
+    <div class="pm"><span class="pmi">📏</span><span class="pml">รอบเอว</span><input class="pminp" type="text" placeholder="—"><span class="pmu">cm</span></div>
+    <div class="pm"><span class="pmi">🪞</span><span class="pml">Mirror Progress</span><input class="pminp" type="text" placeholder="Better"><span class="pmu">weekly</span></div>
+    <div class="pm"><span class="pmi">🏋️</span><span class="pml">Incline Press</span><input class="pminp" type="text" placeholder="—"><span class="pmu">kg×reps</span></div>
+    <div class="pm"><span class="pmi">💪</span><span class="pml">Lateral Raise</span><input class="pminp" type="text" placeholder="—"><span class="pmu">reps@kg</span></div>
+    <div class="pm"><span class="pmi">😴</span><span class="pml">Sleep Quality</span><input class="pminp" type="text" placeholder="7.5h"><span class="pmu">avg/night</span></div>
+    <div class="pm"><span class="pmi">🔋</span><span class="pml">Recovery Status</span><input class="pminp" type="text" placeholder="Good"><span class="pmu">this week</span></div>
+    <div class="pm"><span class="pmi">📅</span><span class="pml">สัปดาห์ที่</span><input class="pminp" type="text" placeholder="1/12"><span class="pmu">of 12</span></div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="fb">TITAN <em>V-TAPER</em> SYSTEM</div>
+  <div class="fs">7-Day Repeatable Blueprint · 12-Week Program · System over Emotion</div>
+</footer>
+
+<script>
+var cd=['DAY 1 — UPPER V-TAPER A\nIncline DB Press 4x8-10 Rest90-120s\nLat Pulldown 4x8-12 Rest90s\nChest-Supported Row 3x8-12 Rest90s\nLateral Raise 4x12-20 Rest60s\nFace Pull 3x12-20 Rest60s\nIncline DB Curl 3x10-15 Rest60s\nRope Pushdown 3x10-15 Rest60s','DAY 2 — CARDIO + CORE\nCardio วิ่ง/Incline Walk 25-35min Zone2\nHanging Knee Raise 3x12-15 Rest60s\nCable Crunch 3x15-20 Rest60s\nSide Plank 2x30-45s Rest45s','DAY 3 — LOWER BODY\nBack/Goblet Squat 4x6-10 Rest2-3min\nRomanian Deadlift 3x8-10 Rest90s\nLeg Press 3x10-15 Rest90s\nLeg Curl 3x10-15 Rest60s\nCalf Raise 4x12-20 Rest60s\nBack Extension 2-3x12-15 Rest60s','DAY 4 — ACTIVE RECOVERY\nเดิน 8,000-10,000 กาว\nMobility 10 นาที\nStretch Chest/Lat/Hip Flexor/Hamstring','DAY 5 — UPPER V-TAPER B\nFlat DB Press 3x8-12 Rest90s\nPull-Up/Pulldown 4x8-12 Rest90s\nOne-Arm Cable Row 3x10-15 Rest60s\nLateral Raise 5x12-20 Rest45-60s\nRear Delt Fly 4x12-20 Rest60s\nLow-High Cable Fly 3x12-15 Rest60s\nHammer Curl 3x10-15 Rest60s','DAY 6 — CARDIO SESSION\nOption A: วิ่ง 20-30 min\nOption B: Incline Walk 30-40 min\nOption C: Shadow Muay Thai 15-20 min','DAY 7 — REST + CHECK-IN\nชั่งน้ำหนักตอนเช้า\nถ่ายรูปหนากระจก front/side\nทบทวน recovery/sleep\nจดน้ำหนักท่า Incline Press/Lateral Raise\nวางแผนสัปดาหหนา'];
+
+function showDay(n,btn){
+  document.querySelectorAll('.dp').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('#dayTabs .tb').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('day-'+n).classList.add('active');
+  btn.classList.add('active');
+}
+function showNutr(n,btn){
+  document.querySelectorAll('.np').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('#nutrTabs .nb').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('nutr-'+n).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleCheck(el){el.classList.toggle('chk');}
+function copyDay(n,btn){
+  var lbl=n===6?'Copy Protocol':'Copy Workout';
+  function done(){btn.textContent='✓ Copied!';btn.classList.add('ok');setTimeout(function(){btn.textContent=lbl;btn.classList.remove('ok');},2000);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(cd[n]).then(done).catch(function(){fb(n,done);});}else{fb(n,done);}
+}
+function fb(n,done){var ta=document.createElement('textarea');ta.value=cd[n];ta.style.cssText='position:fixed;opacity:0;top:0;left:0;width:1px;height:1px';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
+</script>
+</body>
+</html>
